@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OffLangParser.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TermSeparator" Type="System.Char" Scope="Application">
+      <Value Profile="(Default)">,</Value>
+    </Setting>
+    <Setting Name="ParentIndicator" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;</Value>
+    </Setting>
+    <Setting Name="PrefixSeparator" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">:</Value>
+    </Setting>
+    <Setting Name="LanguageSeparator" Type="System.Char" Scope="Application">
+      <Value Profile="(Default)">:</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
