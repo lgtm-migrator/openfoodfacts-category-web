@@ -74,7 +74,7 @@
             {
                 foreach (var translation in translationSet.Translations)
                 {
-                    foreach (var word in HacketyHack(translation.Words))
+                    foreach (var word in translation.Words)
                     {
                         result.Add(new Word(word, translation.Language), translationSet);
                     }
@@ -107,15 +107,6 @@
 
                 throw new Exception(message.ToString());
             }
-        }
-
-        private static IEnumerable<string> HacketyHack(IReadOnlyList<string> words)
-        {
-            // HACK for duplicate translations "Frozen string beans" and "Fruit syrups" as of 2015-06-28T20:17+0200.
-            var filterBeans = words.Any(w => w.Equals("Frozen string beans") && words.Any(w2 => w2.Equals("Frozen common beans")));
-            var filterSyrup = words.Any(w => w.Equals("Fruit syrups") && words.Any(w2 => w2.Equals("Fruit molasses")));
-            return words.Where(w => (!filterBeans || (filterBeans && !w.Equals("Frozen string beans")))
-            && (!filterSyrup || (filterSyrup && !w.Equals("Fruit syrups"))));
         }
     }
 }

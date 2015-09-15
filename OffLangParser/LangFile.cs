@@ -135,7 +135,13 @@
                 await WriteParentAsync(writer, parent, languageComparer);
             }
 
-            foreach (var translation in translationSet.Translations)
+            var english = Culture.FromIsoName("en");
+            foreach (var translation in translationSet.Translations.Where(t => t.Language.Equals(english))) // "en" first
+            {
+                await WriteTranslationAsync(writer, translation);
+            }
+
+            foreach (var translation in translationSet.Translations.Where(t => !t.Language.Equals(english)))
             {
                 await WriteTranslationAsync(writer, translation);
             }
