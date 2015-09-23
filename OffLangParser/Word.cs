@@ -29,7 +29,7 @@
         public override bool Equals(object obj)
         {
             var word = obj as Word;
-            if (obj == null)
+            if (word == null)
             {
                 return false;
             }

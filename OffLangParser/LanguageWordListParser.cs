@@ -4,7 +4,6 @@
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using System.Globalization;
     using System.Linq;
 
     [SuppressMessage("Microsoft.Naming", "CA1702:CompoundWordsShouldBeCasedCorrectly", MessageId = "WordList")]
@@ -36,7 +35,7 @@
                 return false;
             }
 
-            var words = split[1].Trim().Split(Settings.Default.TermSeparator).Select(w => w.Trim()).ToList();
+            var words = split[1].Trim().Split(Settings.Default.TermSeparator).Select(w => w.Trim()).Where(w => !string.IsNullOrWhiteSpace(w)).ToList();
             result = this.BuildResult(language, words);
             return true;
         }

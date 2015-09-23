@@ -22,6 +22,7 @@
     <WarningLevel>4</WarningLevel>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -71,8 +72,10 @@
     <Compile Include="StopWordsParser.cs" />
     <Compile Include="Synonym.cs" />
     <Compile Include="PnnsGroupParser.cs" />
+    <Compile Include="Country.cs" />
     <Compile Include="WikidataCategory.cs" />
     <Compile Include="WikidataCategoryParser.cs" />
+    <Compile Include="CountryParser.cs" />
     <Compile Include="WikipediaCategoryParser.cs" />
     <Compile Include="WikidataParser.cs" />
     <Compile Include="SynonymsParser.cs" />

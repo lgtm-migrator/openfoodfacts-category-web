@@ -13,5 +13,7 @@
         public const string WikipediaCategory = "wikipediacategory";
 
         public const string PnnsGroup = "pnns_group";
+
+        public const string Country = "country";
     }
 }

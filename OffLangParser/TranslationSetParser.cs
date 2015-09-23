@@ -60,16 +60,16 @@
             var linkedDatas = new List<LinkedData>(lines.Count);
             foreach (var line in values)
             {
-                Translation translation;
                 LinkedData linkedData;
-                if (this.translationParser.TryParse(line, out translation))
-                {
-                    translations.Add(translation);
-                }
-                else if (this.linkedDataParser.TryParse(line, out linkedData))
+                Translation translation;
+                if (this.linkedDataParser.TryParse(line, out linkedData))
                 {
                     linkedDatas.Add(linkedData);
                 }
+                else if (this.translationParser.TryParse(line, out translation))
+                {
+                    translations.Add(translation);
+                }                
             }
 
             result = new TranslationSet(parentSets, translations, linkedDatas);
