@@ -45,7 +45,7 @@
                     Language = model.Language
                 };
 
-                using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(model.Taxonomy)))
+                using (var stream = GetTaxonomyStream(model.Taxonomy))
                 {
                     try
                     {
@@ -96,6 +96,36 @@
             else
             {
                 return this.View("Index", model);
+            }
+        }
+
+        private static Stream GetTaxonomyStream(string taxonomy)
+        {
+            return new MemoryStream(GetTaxonomyBytes(taxonomy));
+        }
+
+        private static byte[] GetTaxonomyBytes(string taxonomy)
+        {
+            return Encoding.UTF8.GetBytes(GetTaxonomy(taxonomy));
+        }
+
+        private static string GetTaxonomy(string taxonomy)
+        {
+            // This method removed anything outside the <pre></pre>. It
+            // is designed for a single <pre> in the text and is obviously
+            // not meant as a HTML parser, but just as a convenience feature.
+            const string startTag = "<pre>";
+            const string endTag = "</pre>";
+
+            var positionStartTag = taxonomy.LastIndexOf(startTag, StringComparison.OrdinalIgnoreCase);
+            var positionEndTag = taxonomy.LastIndexOf(endTag, StringComparison.OrdinalIgnoreCase);
+            if (positionEndTag < 0 || positionStartTag < 0 || positionEndTag <= positionStartTag)
+            {
+                return taxonomy;
+            }
+            else
+            {
+                return taxonomy.Substring(positionStartTag, taxonomy.Length + positionStartTag - positionEndTag);
             }
         }
     }
