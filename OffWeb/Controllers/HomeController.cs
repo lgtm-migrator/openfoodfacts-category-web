@@ -125,7 +125,7 @@
             }
             else
             {
-                return taxonomy.Substring(positionStartTag, taxonomy.Length + positionStartTag - positionEndTag);
+                return taxonomy.Substring(positionStartTag, positionEndTag - positionStartTag);
             }
         }
     }
