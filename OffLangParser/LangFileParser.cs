@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using System.Text;
 
     public class LangFileParser
     {
@@ -37,14 +38,23 @@
             this.translationSetParser = translationSetParser;
         }
 
-        public LangFile Parse(string fileName)
+        public LangFile Parse(Stream stream, Encoding encoding)
         {
+            if (stream == null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
+            if (encoding == null)
+            {
+                throw new ArgumentNullException(nameof(encoding));
+            }
+
             var stopwordList = new List<StopWords>();
             var synonymList = new List<Synonym>();
             var translationSetList = new List<TranslationSet>();
 
-            using (var stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read))
-            using (var reader = new StreamReader(stream, true))
+            using (var reader = new StreamReader(stream, encoding, true, 1, true))
             {
                 var lines = new List<string>();
                 string line;

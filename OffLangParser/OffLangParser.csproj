@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Culture.cs" />
     <Compile Include="CultureData.cs" />
+    <Compile Include="DuplicateWordsException.cs" />
     <Compile Include="IMultilineParser.cs" />
     <Compile Include="ISingleLineParser.cs" />
     <Compile Include="LangFile.cs" />

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Globalization;
+    using System.IO;
     using System.Linq;
     using System.Text;
 
@@ -20,9 +21,19 @@
             this.langFileParser = langFileParser;
         }
 
-        public LangFile Parse(string fileName)
+        public LangFile Parse(Stream stream, Encoding encoding)
         {
-            var unlinkedFile = this.langFileParser.Parse(fileName);
+            if (stream == null)
+            {
+                throw new ArgumentNullException(nameof(stream));
+            }
+
+            if (encoding == null)
+            {
+                throw new ArgumentNullException(nameof(encoding));
+            }
+
+            var unlinkedFile = this.langFileParser.Parse(stream, encoding);
 
             // Reverse map each translation to their translation set,
             // useful for faster linking of the entries to their parents.
@@ -91,21 +102,37 @@
                          from w in t.Words
                          let word = new Word(w, t.Language)
                          group word by word into g
-                         let cw = new { g.Key, Count = g.Count() }
+                         let cw = new WordCount(g.Key, g.Count())
                          where cw.Count > 1
                          orderby cw.Count descending
                          select cw).ToList();
 
             if (dupes.Count > 0)
             {
-                var message = new StringBuilder(dupes.Count * 100);
-                message.AppendLine("Duplicate words: ");
-                foreach (var dupe in dupes)
+                throw new DuplicateWordsException(dupes);
+            }
+        }
+
+        internal class WordCount
+        {
+            public WordCount(Word word, int count)
+            {
+                if (word == null)
                 {
-                    message.AppendFormat(CultureInfo.CurrentCulture, "{0}: {1} ({2} occurences)", dupe.Key.Language.Name, dupe.Key.Name, dupe.Count).AppendLine();
+                    throw new ArgumentNullException(nameof(word));
                 }
 
-                throw new Exception(message.ToString());
+                this.Word = word;
+                this.Count = count;
+            }
+
+            public Word Word { get; }
+
+            public int Count { get; }
+
+            public override string ToString()
+            {
+                return string.Format(CultureInfo.CurrentCulture, "{0}:{1} ({2} occurences)", this.Word.Language.Name, this.Word.Name, this.Count);
             }
         }
     }
