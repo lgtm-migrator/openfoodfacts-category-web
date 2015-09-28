@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OffWeb", "OffWeb\OffWeb.csproj", "{C92E0578-A55F-486D-B05D-377C66B92EC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OffLangParser", "openfoodfacts-lang-parser\OffLangParser\OffLangParser.csproj", "{8494F320-4C3A-4C94-A4BE-E210B984F868}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OffLangParser", ".offparser\bundle\openfoodfacts-lang-parser\OffLangParser\OffLangParser.csproj", "{8494F320-4C3A-4C94-A4BE-E210B984F868}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

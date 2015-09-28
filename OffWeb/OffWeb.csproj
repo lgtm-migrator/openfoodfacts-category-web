@@ -231,15 +231,15 @@
     <Content Include="Views\Home\DisplayTemplates\Taxonomy.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\openfoodfacts-lang-parser\OffLangParser\OffLangParser.csproj">
-      <Project>{8494f320-4c3a-4c94-a4be-e210b984f868}</Project>
-      <Name>OffLangParser</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\.offparser\bundle\openfoodfacts-lang-parser\OffLangParser\OffLangParser.csproj">
+      <Project>{8494f320-4c3a-4c94-a4be-e210b984f868}</Project>
+      <Name>OffLangParser</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
