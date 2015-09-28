@@ -89,7 +89,7 @@
                     catch (DuplicateWordsException ex)
                     {
                         this.ModelState.AddModelError(nameof(model.Taxonomy), ex);
-                        return this.View("Index", model);
+                        return this.View("Dupes", ex);
                     }
                 }
             }

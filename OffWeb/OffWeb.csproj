@@ -180,6 +180,7 @@
     <Content Include="Views\Home\Result.cshtml" />
     <Content Include="Views\Home\_Input.cshtml" />
     <Content Include="Views\Home\DisplayTemplates\Taxonomy.cshtml" />
+    <Content Include="Views\Home\Dupes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
