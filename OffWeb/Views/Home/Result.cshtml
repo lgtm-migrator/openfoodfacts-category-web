@@ -1,0 +1,48 @@
+﻿@model OffWeb.Models.AnalyzedTaxonomyViewModel
+
+@{
+    ViewBag.Title = "Result";
+}
+
+<h2>Result</h2>
+
+<div>
+    <h4>AnalyzedTaxonomyViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Taxonomy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Taxonomy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Language)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Language)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedTaxonomy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedTaxonomy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryWithoutEnglishEntry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryWithoutEnglishEntry)
+        </dd>
+
+    </dl>
+</div>
+
+@Html.Partial("_Input")

@@ -1,0 +1,3 @@
+[submodule "openfoodfacts-lang-parser"]
+	path = openfoodfacts-lang-parser
+	url = https://github.com/hangy/openfoodfacts-lang-parser.git
