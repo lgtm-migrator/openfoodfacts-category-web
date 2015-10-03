@@ -16,7 +16,7 @@
 
     public class HomeController : Controller
     {
-        private const string wikiUrl = "http://en.wiki.openfoodfacts.org/w/api.php?action=query&prop=revisions&rvprop=content&format=json&titles=Global_categories_taxonomy";
+        private const string wikiUrl = "http://en.wiki.openfoodfacts.org/api.php?action=query&prop=revisions&rvprop=content&format=json&titles=Global_categories_taxonomy";
 
         private readonly Lazy<LinkedLangFileParser> parser = new Lazy<LinkedLangFileParser>(ParserFactory.GetParser, LazyThreadSafetyMode.PublicationOnly);
 
