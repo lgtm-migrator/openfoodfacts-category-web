@@ -136,6 +136,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AnalyzedTaxonomyViewModel.cs" />
+    <Compile Include="Models\LanguageViewModel.cs" />
     <Compile Include="Models\TaxonomyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -178,7 +179,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Result.cshtml" />
-    <Content Include="Views\Home\_Input.cshtml" />
     <Content Include="Views\Home\DisplayTemplates\Taxonomy.cshtml" />
     <Content Include="Views\Home\Dupes.cshtml" />
   </ItemGroup>

@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class AnalyzedTaxonomyViewModel : TaxonomyViewModel
+    public class AnalyzedTaxonomyViewModel : LanguageViewModel
     {
         [DataType(DataType.MultilineText), Editable(false), UIHint("Taxonomy")]
         public string UpdatedTaxonomy { get; set; }
