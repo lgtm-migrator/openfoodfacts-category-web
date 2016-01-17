@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GrapeVarietyParser.cs" />
+    <Compile Include="GrapeVariety.cs" />
+    <Compile Include="InstanceOfParser.cs" />
+    <Compile Include="InstanceOf.cs" />
+    <Compile Include="RegionParser.cs" />
+    <Compile Include="Region.cs" />
     <Compile Include="Culture.cs" />
     <Compile Include="CultureData.cs" />
     <Compile Include="DuplicateWordsException.cs" />
