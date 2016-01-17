@@ -15,5 +15,12 @@
         public const string PnnsGroup = "pnns_group";
 
         public const string Country = "country";
+
+        // Weird new wine properties
+        public const string Region = "region";
+
+        public const string InstanceOf = "instanceof";
+
+        public const string GrapeVariety = "grapevariety";
     }
 }
