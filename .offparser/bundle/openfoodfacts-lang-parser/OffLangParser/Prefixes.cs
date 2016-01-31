@@ -16,6 +16,8 @@
 
         public const string Country = "country";
 
+        public const string Label = "label";
+
         // Weird new wine properties
         public const string Region = "region";
 
