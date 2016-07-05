@@ -1,6 +1,5 @@
 ﻿namespace OffLangParser
 {
-    using Properties;
     using System;
 
     public abstract class PrefixOnlyParser<TResult> : ISingleLineParser<TResult>
@@ -9,7 +8,7 @@
 
         protected PrefixOnlyParser(string prefix)
         {
-            this.prefix = string.IsNullOrWhiteSpace(prefix) ? string.Empty : string.Concat(prefix, Settings.Default.PrefixSeparator);
+            this.prefix = string.IsNullOrWhiteSpace(prefix) ? string.Empty : string.Concat(prefix, Constants.PrefixSeparator);
         }
 
         public bool TryParse(string line, out TResult result)

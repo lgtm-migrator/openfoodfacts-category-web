@@ -26,7 +26,7 @@
 
             Assert.IsNotNull(culture);
             Assert.AreEqual(expectedName, culture.Name);
-            Assert.AreEqual(CultureInfo.InvariantCulture.CompareInfo, culture.CompareInfo);
+            Assert.AreEqual(4096, culture.CompareInfo.LCID);
         }
     }
 }

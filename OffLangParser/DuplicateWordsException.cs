@@ -2,10 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
     using System.Text;
 
-    [Serializable]
     public class DuplicateWordsException : Exception
     {
         public DuplicateWordsException()
@@ -30,11 +28,6 @@
 
         public DuplicateWordsException(string message, Exception innerException)
             : base(message, innerException)
-        {
-        }
-
-        protected DuplicateWordsException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
         {
         }
 

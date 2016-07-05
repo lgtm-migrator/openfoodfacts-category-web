@@ -1,12 +1,10 @@
 ﻿namespace OffLangParser
 {
-    using Properties;
     using System;
     using System.Collections.Generic;
-    using System.Globalization;
     using System.IO;
-    using System.Threading.Tasks;
     using System.Linq;
+    using System.Threading.Tasks;
 
     public class LangFile
     {
@@ -105,12 +103,12 @@
             if (!string.IsNullOrWhiteSpace(prefix))
             {
                 await writer.WriteAsync(prefix);
-                await writer.WriteAsync(Settings.Default.PrefixSeparator);
+                await writer.WriteAsync(Constants.PrefixSeparator);
             }
 
             await writer.WriteAsync(wordList.Language.Name);
-            await writer.WriteAsync(Settings.Default.LanguageSeparator);
-            await writer.WriteLineAsync(string.Join(Settings.Default.TermSeparator + " ", wordList.Words));
+            await writer.WriteAsync(Constants.LanguageSeparator);
+            await writer.WriteLineAsync(string.Join(Constants.TermSeparator + " ", wordList.Words));
         }
 
         private static async Task WriteToAsync(TextWriter writer, IReadOnlyList<TranslationSet> translationSets)
@@ -162,10 +160,10 @@
                 return;
             }
 
-            await writer.WriteAsync(Settings.Default.ParentIndicator);
+            await writer.WriteAsync(Constants.ParentIndicator);
             await writer.WriteAsync(mostImportantTranslation.Language.Name);
-            await writer.WriteAsync(Settings.Default.LanguageSeparator);
-            await writer.WriteLineAsync(string.Join(Settings.Default.TermSeparator + " ", mostImportantTranslation.Words.First()));
+            await writer.WriteAsync(Constants.LanguageSeparator);
+            await writer.WriteLineAsync(string.Join(Constants.TermSeparator + " ", mostImportantTranslation.Words.First()));
         }
 
         private static async Task WriteTranslationAsync(TextWriter writer, Translation translation)
