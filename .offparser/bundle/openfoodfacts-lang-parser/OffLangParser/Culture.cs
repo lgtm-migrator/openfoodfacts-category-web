@@ -4,7 +4,6 @@
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
-    using System.Linq;
 
     public static class Culture
     {
@@ -25,9 +24,7 @@
             CultureData result;
             if (!cultures.TryGetValue(key, out result))
             {
-                var info = (from c in CultureInfo.GetCultures(CultureTypes.AllCultures)
-                            where c.Name.Equals(name, StringComparison.OrdinalIgnoreCase)
-                            select c).FirstOrDefault();
+                var info = new CultureInfo(name);
                 result = info != null ? new CultureData(info) : new CultureData(name);
                 cultures.Add(key, result);
             }

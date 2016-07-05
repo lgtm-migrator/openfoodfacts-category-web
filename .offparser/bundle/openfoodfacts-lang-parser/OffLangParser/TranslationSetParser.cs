@@ -1,15 +1,14 @@
 ﻿namespace OffLangParser
 {
-    using Properties;
     using System;
     using System.Collections.Generic;
     using System.Linq;
 
     public class TranslationSetParser : IMultilineParser<TranslationSet>
     {
-        private static readonly IReadOnlyList<TranslationSet> emptyTranslationSetList = new List<TranslationSet>(0).AsReadOnly();
+        private static readonly IReadOnlyList<TranslationSet> emptyTranslationSetList = new List<TranslationSet>(0);
 
-        private static readonly IReadOnlyList<LinkedData> emptyLinkedDataList = new List<LinkedData>(0).AsReadOnly();
+        private static readonly IReadOnlyList<LinkedData> emptyLinkedDataList = new List<LinkedData>(0);
 
         private readonly ISingleLineParser<Translation> translationParser;
 
@@ -38,13 +37,13 @@
                 throw new ArgumentNullException(nameof(lines));
             }
 
-            var parents = lines.Where(l => l.StartsWith(Settings.Default.ParentIndicator, StringComparison.OrdinalIgnoreCase));
-            var values = lines.Where(l => !l.StartsWith(Settings.Default.ParentIndicator, StringComparison.OrdinalIgnoreCase));
+            var parents = lines.Where(l => l.StartsWith(Constants.ParentIndicator, StringComparison.OrdinalIgnoreCase));
+            var values = lines.Where(l => !l.StartsWith(Constants.ParentIndicator, StringComparison.OrdinalIgnoreCase));
 
             var parentSets = new List<TranslationSet>();
             foreach (var line in parents)
             {
-                var trimmedLine = line.Substring(Settings.Default.ParentIndicator.Length, line.Length - Settings.Default.ParentIndicator.Length).Trim();
+                var trimmedLine = line.Substring(Constants.ParentIndicator.Length, line.Length - Constants.ParentIndicator.Length).Trim();
 
                 var parentSetTranslations = new List<Translation>();
                 Translation translation;

@@ -1,6 +1,5 @@
 ﻿namespace OffLangParser
 {
-    using Properties;
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
@@ -23,7 +22,7 @@
 
             result = default(TResult);
 
-            var split = lineWithoutPrefix.Split(Settings.Default.LanguageSeparator);
+            var split = lineWithoutPrefix.Split(Constants.LanguageSeparator);
             if (split.Length != 2)
             {
                 return false;
@@ -35,7 +34,7 @@
                 return false;
             }
 
-            var words = split[1].Trim().Split(Settings.Default.TermSeparator).Select(w => w.Trim()).Where(w => !string.IsNullOrWhiteSpace(w)).ToList();
+            var words = split[1].Trim().Split(Constants.TermSeparator).Select(w => w.Trim()).Where(w => !string.IsNullOrWhiteSpace(w)).ToList();
             result = this.BuildResult(language, words);
             return true;
         }
