@@ -1,7 +1,6 @@
 ﻿namespace OffLangParser.UnitTests
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System.Globalization;
 
     [TestClass]
     public class CultureTests
@@ -26,7 +25,7 @@
 
             Assert.IsNotNull(culture);
             Assert.AreEqual(expectedName, culture.Name);
-            Assert.AreEqual(4096, culture.CompareInfo.LCID);
+            Assert.AreEqual("zz", culture.CompareInfo.Name);
         }
     }
 }

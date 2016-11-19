@@ -1,5 +1,6 @@
-﻿namespace OffWeb.Controllers
+﻿namespace OffWebCore.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
     using OffLangParser;
@@ -12,7 +13,6 @@
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
-    using System.Web.Mvc;
 
     public class HomeController : Controller
     {
@@ -20,7 +20,7 @@
 
         private readonly Lazy<LinkedLangFileParser> parser = new Lazy<LinkedLangFileParser>(ParserFactory.GetParser, LazyThreadSafetyMode.PublicationOnly);
 
-        public ActionResult Index()
+        public IActionResult Index()
         {
             ViewBag.Title = "Home Page";
 
@@ -36,7 +36,7 @@
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<ActionResult> Index(TaxonomyViewModel model)
+        public async Task<IActionResult> Index(TaxonomyViewModel model)
         {
             if (model == null)
             {
@@ -53,7 +53,7 @@
                     }
                     catch (DuplicateWordsException ex)
                     {
-                        this.ModelState.AddModelError(nameof(model.Taxonomy), ex);
+                        this.ModelState.AddModelError(nameof(model.Taxonomy), ex, this.MetadataProvider.GetMetadataForType(model.GetType()));
                         return this.View("Dupes", ex);
                     }
                 }
@@ -65,7 +65,7 @@
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<ActionResult> CurrentWiki(LanguageViewModel model)
+        public async Task<IActionResult> CurrentWiki(LanguageViewModel model)
         {
             if (model == null)
             {
@@ -82,7 +82,7 @@
                     }
                     catch (DuplicateWordsException ex)
                     {
-                        this.ModelState.AddModelError(string.Empty, ex);
+                        this.ModelState.AddModelError(string.Empty, ex, this.MetadataProvider.GetMetadataForType(model.GetType()));
                         return this.View("Dupes", ex);
                     }
                 }
@@ -105,7 +105,7 @@
             }
         }
 
-        private async Task<ActionResult> Analyze(Stream stream, string language)
+        private async Task<IActionResult> Analyze(Stream stream, string language)
         {
             var result = new AnalyzedTaxonomyViewModel
             {

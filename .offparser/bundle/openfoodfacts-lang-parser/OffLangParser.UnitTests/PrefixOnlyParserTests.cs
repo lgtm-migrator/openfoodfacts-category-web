@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-namespace OffLangParser.UnitTests
+﻿namespace OffLangParser.UnitTests
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using System;

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.25914.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OffWeb", "OffWeb\OffWeb.csproj", "{C92E0578-A55F-486D-B05D-377C66B92EC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OffWeb", "OffWeb\OffWeb.csproj", "{3C3FD5C8-6C4B-44BF-806E-119915495D40}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OffLangParser", ".offparser\bundle\openfoodfacts-lang-parser\OffLangParser\OffLangParser.csproj", "{8494F320-4C3A-4C94-A4BE-E210B984F868}"
 EndProject
@@ -13,10 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C92E0578-A55F-486D-B05D-377C66B92EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C92E0578-A55F-486D-B05D-377C66B92EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C92E0578-A55F-486D-B05D-377C66B92EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C92E0578-A55F-486D-B05D-377C66B92EC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C3FD5C8-6C4B-44BF-806E-119915495D40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C3FD5C8-6C4B-44BF-806E-119915495D40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C3FD5C8-6C4B-44BF-806E-119915495D40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C3FD5C8-6C4B-44BF-806E-119915495D40}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8494F320-4C3A-4C94-A4BE-E210B984F868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8494F320-4C3A-4C94-A4BE-E210B984F868}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8494F320-4C3A-4C94-A4BE-E210B984F868}.Release|Any CPU.ActiveCfg = Release|Any CPU
